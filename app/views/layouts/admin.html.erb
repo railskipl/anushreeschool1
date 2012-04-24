@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Project</title>
+
+  <%= csrf_meta_tags %>
+   
+</head>
+<body>
+	
+<% if admin_signed_in? %>
+<%= link_to "Sign Out", destroy_admin_session_path %> 
+<% end %>
+<br />
+<br />
+<li><% if controller.controller_name == 'pages' %> <%= link_to "Pages", admin_pages_path, :class=>"active" %> <% else %> <%= link_to "Pages", admin_pages_path %> <% end %></li>
+<li><% if controller.controller_name == 'contacts' %> <%= link_to "Contacts", admin_contacts_path, :class=>"active" %> <% else %> <%= link_to "Contacts", admin_contacts_path %> <% end %></li>
+<%= yield %>
+
+</body>
+</html>
